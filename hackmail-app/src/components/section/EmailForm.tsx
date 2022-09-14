@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Form } from "../common/Form";
 import { Field } from "../common/Field";
+import Button from "../common/Button"; // TODO: Fix
 
 export const EmailForm: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ export const EmailForm: React.FC = () => {
           </div>
           <Field id="emailTo" label="emailTo: " />
           <Field id="emailFrom" label="emailFrom: " />
+          <Button link="TODO">Attachments</Button>
           <Field
             id="reason"
             label="Reason"
