@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import './App.css';
 import { logo } from './images/Images';
 import { Button, DatePicker, Form, Space, version } from "antd";
-import EmailField from './components/common/EmailField';
+//import EmailField from './components/common/EmailField';
+import EmailFormInit from './components/section/EmailFormInit'
 
 const App = () => {
   const [base64, setBase64] = useState("");
@@ -50,7 +51,7 @@ const App = () => {
     <div className="App">   
       <Form>
         <input type="file" accept="application/pdf" onChange={onChange}/>
-        <EmailField />
+        <EmailFormInit />
       </Form>
       {base64 ? <Button onClick={handleSubmit}>SEND TO LAMBDA</Button> : null}
       
