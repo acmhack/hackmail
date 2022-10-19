@@ -3,9 +3,13 @@ import React, { useState } from "react";
 import { Field } from "../common/Field";
 //import Button from "../common/Button";
 
+import EmailField from '../common/EmailField';
+
 import { Button, Checkbox, Form, Input, Upload, message } from "antd";
 import type { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface';
 import { UploadOutlined, PlusOutlined } from '@ant-design/icons';
+
+import 'antd/dist/antd.css';
 
 const { TextArea } = Input;
 
@@ -36,7 +40,7 @@ const EmailFormInit: React.FC = () => {
               name="toEmail"
               rules={[{ required: true, message: 'please work'}]}
             >
-                <Input />
+                <EmailField />
             </Form.Item>
             <Form.Item
               label="attachments"

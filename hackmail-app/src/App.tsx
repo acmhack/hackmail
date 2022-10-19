@@ -4,6 +4,7 @@ import { logo } from './images/Images';
 import { Button, DatePicker, Form, Space, version } from "antd";
 //import EmailField from './components/common/EmailField';
 import EmailFormInit from './components/section/EmailFormInit'
+import { RcFile } from 'antd/lib/upload';
 
 const App = () => {
   const [base64, setBase64] = useState("");
@@ -50,7 +51,7 @@ const App = () => {
   return ( //add option to submit other files (so check the data:application/pdf:base64 in the base64Data)
     <div className="App">   
       <Form>
-        <input type="file" accept="application/pdf" onChange={onChange}/>
+        {/*<input type="file" accept="application/pdf" onChange={onChange}/>*/}
         <EmailFormInit />
       </Form>
       {base64 ? <Button onClick={handleSubmit}>SEND TO LAMBDA</Button> : null}

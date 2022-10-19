@@ -3,14 +3,12 @@ import { Select } from 'antd';
 import sponsoremails from "../../data/sponsoremails.json";
 import { listenerCount } from "process";
 
+import 'antd/dist/antd.css';
+
 const { Option } = Select;
 
 //edit children to 
 const children: React.ReactNode[] = [];
-
-for (const [i, email] of sponsoremails.entries()) {
-  children.push(<Option key={email.company_name}>{email.contact_email}</Option>)
-}
 
 sponsoremails.map((email) => {
   children.push(<Option key={email.company_id}>{email.contact_email}</Option>);
