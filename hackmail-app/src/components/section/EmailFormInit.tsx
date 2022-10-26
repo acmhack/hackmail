@@ -1,13 +1,9 @@
 import React, { useState } from "react";
-//import { Form } from "../common/Form";
-import { Field } from "../common/Field";
-//import Button from "../common/Button";
 
 import EmailField from '../common/EmailField';
+import FileUpload from '../common/FileUpload';
 
 import { Button, Checkbox, Form, Input, Upload, message } from "antd";
-import type { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface';
-import { UploadOutlined, PlusOutlined } from '@ant-design/icons';
 
 import 'antd/dist/antd.css';
 
@@ -17,7 +13,7 @@ const EmailFormInit: React.FC = () => {
     const [form] = Form.useForm();
 
     const onFinish = (values: any) => {
-        console.log('Success:', values);
+        console.log(values);
     }
 
     const onFinishFailed = (errorInfo: any) => {
@@ -31,10 +27,10 @@ const EmailFormInit: React.FC = () => {
           wrapperCol={{ span: 16 }}
           layout="horizontal"
           autoComplete="off"
-          form={form}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
-        >
+          form={form}>
+          {/*
             <Form.Item
               label="toEmail"
               name="toEmail"
@@ -42,31 +38,25 @@ const EmailFormInit: React.FC = () => {
             >
                 <EmailField />
             </Form.Item>
+    
             <Form.Item
               label="attachments"
               valuePropName="fileList"
               name="attachments"
-              rules={[{ required: true, message: 'please work'}]}
+              rules={[{ message: 'please work'}]}
             >
-                <Upload listType="picture-card">
-                    <div>
-                        <PlusOutlined />
-                        <div style={{ marginTop: 8}}>Upload</div>
-                    </div>
-                </Upload>
+                <FileUpload />
             </Form.Item>
+    */}
             <Form.Item
               label="body"
               name="body"
-              rules={[{message: 'please work'}]}
             >
                 <TextArea rows={4} />
-                <br />
-                <br />
             </Form.Item>
             <Form.Item wrapperCol={{ offset: 8, span: 16}}>
                 <Button type="primary" htmlType="submit">
-                    Submit
+                    Send Job
                 </Button>
             </Form.Item>
         </Form>
