@@ -3,14 +3,30 @@ import React, { useState } from "react";
 import EmailField from '../common/EmailField';
 import FileUpload from '../common/FileUpload';
 
-import { Button, Checkbox, Form, Input, Upload, message } from "antd";
+import { Button, Select, Checkbox, Form, Input, Upload, message } from "antd";
+import type { SelectProps } from "antd";
 
 import 'antd/dist/antd.css';
 
 const { TextArea } = Input;
 
+const children: SelectProps['options'] = [];
+for (let i = 10; i < 36; i++) {
+  children.push({
+    value: i.toString(36) + i,
+    label: i.toString(36) + i,
+  });
+}
+
+const OPTIONS = ['Apples', 'Nails', 'Bananas', 'Helicopters'];
+
 const EmailFormInit: React.FC = () => {
     const [form] = Form.useForm();
+
+    const [selectedItems, setSelectedItems] = useState<string[]>([]);
+
+    const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
+
 
     const onFinish = (values: any) => {
         console.log(values);
@@ -30,15 +46,37 @@ const EmailFormInit: React.FC = () => {
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
           form={form}>
-          {/*
-            <Form.Item
-              label="toEmail"
-              name="toEmail"
-              rules={[{ required: true, message: 'please work'}]}
-            >
-                <EmailField />
-            </Form.Item>
-    
+          <Form.Item
+            label="toEmail"
+            name="toEmail"
+          >
+            <EmailField />
+            {/*
+            <Select 
+              mode="multiple"
+              style={{ width: '100%' }}
+              optionFilterProp="children"
+              placeholder="Yes it is bad"
+              tokenSeparators={[';']}
+              options={children}
+     filterOption = {(input, option) => 
+     option!.props.children.toUpperCase().indexOf(input.toUpperCase()) !== -1}
+    >
+            </Select>
+            
+            <Select
+          mode="multiple"
+          placeholder="Inserted are removed"
+          value={selectedItems}
+          onChange={setSelectedItems}
+          style={{ width: '100%' }}
+          options={filteredOptions.map(item => ({
+            value: item,
+            label: item,
+        }))}
+      />
+      */}
+          </Form.Item>
             <Form.Item
               label="attachments"
               valuePropName="fileList"
@@ -47,7 +85,6 @@ const EmailFormInit: React.FC = () => {
             >
                 <FileUpload />
             </Form.Item>
-    */}
             <Form.Item
               label="body"
               name="body"
