@@ -1,9 +1,11 @@
-import { logo } from './images/Images';
-import './App.css';
 import React from 'react';
+import './App.css';
+import { logo } from './images/Images';
+import EmailForm from "./components/section/EmailForm"
 
 function App() {
   return (
+    /*
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -20,6 +22,8 @@ function App() {
         </a>
       </header>
     </div>
+    */
+    <EmailForm></EmailForm>
   );
 }
 
