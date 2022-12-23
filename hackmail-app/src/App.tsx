@@ -1,29 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import { logo } from './images/Images';
-import EmailForm from "./components/section/EmailForm"
+import { Button, DatePicker, Form, Space, version } from "antd";
+//import EmailField from './components/common/EmailField';
+import EmailFormInit from './components/section/EmailFormInit'
+import { RcFile } from 'antd/lib/upload';
 
-function App() {
-  return (
-    /*
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const App = () => {
+
+  return ( //add option to submit other files (so check the data:application/pdf:base64 in the base64Data)
+    <div className="App">   
+        {/*<input type="file" accept="application/pdf" onChange={onChange}/>*/}
+      <EmailFormInit />
     </div>
-    */
-    <EmailForm></EmailForm>
   );
 }
 
